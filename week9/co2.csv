@@ -42,8 +42,8 @@ Chile,4.395151064
 China,7.756137907
 Cote d'Ivoire,0.406347357
 Cameroon,0.374782658
-"Congo, Dem. Rep.",0.032584781
-"Congo, Rep.",1.25459167
+Dem. Rep. Congo,0.032584781
+Congo,1.25459167
 Colombia,1.552259423
 Comoros,0.407112183
 Cabo Verde,1.065151723
@@ -66,7 +66,7 @@ East Asia & Pacific,6.221888395
 Europe & Central Asia (excluding high income),11.37229836
 Europe & Central Asia,6.109883423
 Ecuador,1.957575349
-"Egypt, Arab Rep.",1.961122572
+Egypt,1.961122572
 Euro area,5.397825215
 Eritrea,0.198657543
 Spain,4.279594571
@@ -111,7 +111,7 @@ Isle of Man,0
 India,1.576093232
 Not classified,0
 Ireland,6.76822759
-"Iran, Islamic Rep.",7.063351321
+Iran,7.063351321
 Iraq,3.84217782
 Iceland,3.947465365
 Israel,6.345216004
@@ -125,7 +125,7 @@ Kyrgyz Republic,1.37997538
 Cambodia,1.137583659
 Kiribati,0.449933973
 St. Kitts and Nevis,4.848662944
-"Korea, Rep.",10.99002958
+South Korea,10.99002958
 Kuwait,21.16961025
 Latin America & Caribbean (excluding high income),2.112544976
 Lao PDR,2.620283441
@@ -192,7 +192,7 @@ Papua New Guinea,0.563251566
 Poland,7.367563373
 Pre-demographic dividend,0.477024615
 Puerto Rico,0
-"Korea, Dem. People's Rep.",2.027148619
+North Korea,2.027148619
 Portugal,3.784907587
 Paraguay,1.144591192
 West Bank and Gaza,0
@@ -201,7 +201,7 @@ Post-demographic dividend,8.550843951
 French Polynesia,0
 Qatar,31.72684245
 Romania,3.564137501
-Russian Federation,11.14165273
+Russia,11.14165273
 Rwanda,0.10512414
 South Asia,1.337791484
 Saudi Arabia,14.26658537
@@ -215,7 +215,7 @@ San Marino,0
 Somalia,0.039934653
 Serbia,6.714517172
 Sub-Saharan Africa (excluding high income),0.660412633
-South Sudan,0.164309137
+S. Sudan,0.164309137
 Sub-Saharan Africa,0.660876173
 Small states,11.09458032
 Sao Tome and Principe,0.64535014
@@ -250,18 +250,19 @@ Uganda,0.127793035
 Ukraine,3.747387845
 Upper middle income,5.876789568
 Uruguay,1.89971905
-United States,13.03222173
+United States of America,13.03222173
 Uzbekistan,3.376303785
 St. Vincent and the Grenadines,2.100695772
-"Venezuela, RB",2.545027978
+Venezuela,2.545027978
 British Virgin Islands,0
 Virgin Islands (U.S.),0
-Viet Nam,3.676440088
+Vietnam,3.676440088
 Vanuatu,0.389174968
 World,4.291684045
 Samoa,0.960782398
 Kosovo,0
-"Yemen, Rep.",0.308514614
+Yemen,0.308514614
 South Africa,6.687563147
 Zambia,0.401902713
 Zimbabwe,0.530483547
+Taiwan,0
