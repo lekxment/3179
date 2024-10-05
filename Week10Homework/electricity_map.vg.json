@@ -10,7 +10,7 @@
           "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
           "format": { "type": "topojson", "feature": "oceans" }
         },
-        "mark": { "type": "geoshape", "fill": "skyblue" }
+        "mark": { "type": "geoshape", "fill": "#aec6cf" }
       },
       {
         "data": {
@@ -19,16 +19,16 @@
         },
         "mark": {
           "type": "geoshape",
-          "stroke": "lightgray",
-          "strokeWidth": 0.8,
+          "stroke": "#999999",
+          "strokeWidth": 1.2,
           "fill": null
         }
       },
       {
         "mark": {
           "type": "geoshape",
-          "stroke": "white",
-          "strokeWidth": 0.8,
+          "stroke": "black",
+          "strokeWidth": 1,
           "fill": "#e0e0e0"
         },
         "data": {
@@ -47,7 +47,7 @@
             "lookup": "properties.NAME",
             "from": {
               "data": {
-                "url": "access_electricity.csv"
+                "url": "https://raw.githubusercontent.com/lekxment/3179/refs/heads/main/Week10Homework/access_electricity.csv"
               },
               "key": "Country",
               "fields": ["2020"]
@@ -60,9 +60,12 @@
             "type": "quantitative",
             "scale": {
               "domain": [0, 100],
-              "scheme": "oranges"
+              "scheme": "redyellowgreen"
             },
-            "legend": { "title": "Access to Electricity (% Population)" }
+            "legend": { 
+              "title": "Access to Electricity (% Population)",
+              "orient": "bottom" 
+            }
           },
           "tooltip": [
             { "field": "properties.NAME", "type": "nominal", "title": "Country" },
