@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "World Access to Electricity (% Population)",
+    "title": "World Access to Electricity (2020)",
     "width": 800,
     "height": 400,
     "projection": { "type": "equalEarth" },
@@ -63,7 +63,7 @@
               "scheme": "redyellowgreen"
             },
             "legend": { 
-              "title": "Access to Electricity (% Population)",
+              "title": "Electricity Access (% Population)",
               "orient": "bottom" 
             }
           },
