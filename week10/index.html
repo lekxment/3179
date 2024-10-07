@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import updated Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <script src="visualisations.js"></script>
+  <style>
+    /* Aligning visualizations centrally */
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Full viewport height */
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #barchart-1, #barchart-2, #choropleth_map {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      padding-left: 150px;
+    }
+
+    #choropleth_map {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      padding-left: 80px;
+    }
+
+    p {
+      font-size: 16px; 
+      color: #555; 
+      line-height: 1.6; 
+      max-width: 600px; 
+      text-align: justify; 
+      background-color: #ffffff; 
+      border: 1px solid #ddd;
+      border-radius: 5px; 
+      padding: 15px; 
+      margin: 15px 0; 
+      margin-left: -50px; 
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    }
+  </style>
+  
+  <title>Homework Week 10</title>
+</head>
+<body>
+    <h1>World Environment Indicators (2020)</h1>
+    <br>
+    <br>
+    
+    <h2>Top 10 Countries for <b>CO2 Emissions</b> vs Forest Area</h2>
+    <div id="barchart-1"></div>
+    <p><b>Brunei Darussalam</b> has high CO2 Emissions with high forest area is because
+        dominated by the <b>burning of fossil fuels</b> for energy production
+    </p>
+    <br>
+
+    <h2>Top 10 Countries for <b>Forest Area</b> vs CO2 Emissions</h2>
+    <div id="barchart-2"></div>
+    <p><b>Higher</b> Forest Area leads to <b>Lower</b> CO2 Emissions and vice versa</p>
+
+    <br>
+    <h2 style="padding: 20px;">World Access to Electricity (2020)</h2>
+    <div id="choropleth_map"></div>
+    <p><b>Africa</b> is the only continent that majorly sufferes from electricity access</p>
+    
+</body>
+</html>
