@@ -1,9 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A grouped bar chart comparing CO2 emissions and forest area by country.",
-  "width": 500,
+  "width": 700,
   "height": 300,
-  "title": "Forest Area (Top 10 Countries) vs CO2 emissions",
   "data": {
     "values": [
       {"Country": "Suriname", "CO2_Emissions": 4.285077, "Forest_Area": 97.412115},
@@ -31,7 +30,7 @@
       "as": ["Metric", "Value"]
     },
     {
-      "calculate": "datum.Metric === 'Forest_Area' ? 'Forest Area' : 'CO2 Emissions'",
+      "calculate": "datum.Metric === 'Forest_Area' ? 'Forest Area (% of land area)' : 'CO2 Emissions (metric tons per capita)'",
       "as": "Metric Label"
     }
   ],
@@ -46,7 +45,7 @@
     "y": {
       "field": "Value",
       "type": "quantitative",
-      "title": "CO2 emissions (metrics per ton capita)"
+      "title": "Value"
     },
     "color": {
       "field": "Metric Label",
