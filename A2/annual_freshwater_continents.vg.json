@@ -1,0 +1,89 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "new_freshwater.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "selection": {
+      "continent_filter": {
+        "type": "multi",
+        "fields": ["Continent"],
+        "bind": "legend"
+      }
+    },
+    "transform": [
+      {
+        "aggregate": [
+          {
+            "op": "sum",
+            "field": "2020",
+            "as": "Total_Freshwater_Retrieval"
+          }
+        ],
+        "groupby": ["Continent"]
+      },
+      {
+        "window": [
+          {
+            "op": "sum",
+            "field": "Total_Freshwater_Retrieval",
+            "as": "Total_Global_Freshwater"
+          }
+        ],
+        "frame": [null, null]
+      },
+      {
+        "calculate": "datum.Total_Freshwater_Retrieval / datum.Total_Global_Freshwater * 100",
+        "as": "Percentage"
+      }
+    ],
+    "mark": {
+      "type": "arc",
+      "innerRadius": 110,
+      "outerRadius": 200
+    },
+    "encoding": {
+      "theta": {
+        "field": "Total_Freshwater_Retrieval",
+        "type": "quantitative",
+        "stack": true
+      },
+      "color": {
+        "field": "Continent",
+        "type": "nominal",
+        "legend": {
+          "title": "Continent",
+          "orient": "bottom"
+        }
+      },
+      "tooltip": [
+        {"field": "Continent", "type": "nominal"},
+        {"field": "Total_Freshwater_Retrieval", "type": "quantitative"},
+        {"field": "Percentage", "type": "quantitative", "format": ".2f", "title": "Percentage (%)"}
+      ],
+      "opacity": {
+        "condition": {
+          "selection": "continent_filter",
+          "empty": false,
+          "value": 1
+        },
+        "value": 0.4
+      }
+    },
+    "view": {
+      "stroke": null
+    },
+    "config": {
+      "legend": {
+        "orient": "bottom",
+        "align": "center"
+      },
+      "view": {
+        "width": 400,
+        "height": 400
+      }
+    }
+  }
+  

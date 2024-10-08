@@ -1,0 +1,106 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Scatter plot of GDP per capita vs Population for countries, colored by continent.",
+    "width": 800,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/lekxment/3179/refs/heads/main/week10/gdp_and_population.csv"
+    },
+    "selection": {
+      "continent_highlight": {
+        "type": "single",
+        "fields": ["Continent"],
+        "bind": {
+          "input": "select",
+          "options": [
+            "Select a Continent",
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "name": "Selection:"
+        }
+      }
+    },
+    "transform": [
+      {
+        "calculate": "datum.GDP / datum.Population",
+        "as": "GDP_per_capita"
+      },
+      {
+        "calculate": "trim(datum.Country)",
+        "as": "Country"
+      }
+    ],
+    "mark": "circle",
+    "encoding": {
+      "x": {
+        "field": "Population",
+        "type": "quantitative",
+        "axis": {
+          "tickCount": 7,
+          "grid": false
+        },
+        "scale": {
+          "type": "log",
+          "domain": [10000, 1000000000]
+        }
+      },
+      "y": {
+        "field": "GDP_per_capita",
+        "type": "quantitative",
+        "axis": {
+          "title": "GDP per Capita"
+        }
+      },
+      "color": {
+        "field": "Continent",
+        "type": "nominal",
+        "legend": {
+          "title": "Continent"
+        }
+      },
+      "size": {
+        "field": "GDP_per_capita",
+        "type": "quantitative",
+        "scale": {
+          "range": [10, 500]
+        },
+        "legend": {
+          "title": "GDP per Capita",
+          "format": ".1s"
+        }
+      },
+      "tooltip": [
+        {
+          "field": "Country",
+          "type": "nominal",
+          "title": "Country"
+        },
+        {
+          "field": "Population",
+          "type": "quantitative"
+        },
+        {
+          "field": "GDP_per_capita",
+          "type": "quantitative",
+          "format": ".4s"
+        },
+        {
+          "field": "Continent",
+          "type": "nominal"
+        }
+      ],
+      "opacity": {
+        "condition": {
+          "selection": "continent_highlight",
+          "value": 0.6
+        },
+        "value": 0.2
+      }
+    }
+  }
+  

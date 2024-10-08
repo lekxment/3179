@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A grouped bar chart comparing CO2 emissions and forest area by country.",
+  "width": 800,
+  "height": 300,
+  "data": {
+    "values": [
+      {"Country": "Suriname", "CO2_Emissions": 4.285077, "Forest_Area": 97.412115},
+      {"Country": "Guyana", "CO2_Emissions": 3.472771, "Forest_Area": 93.550114},
+      {"Country": "Micronesia", "CO2_Emissions": 2.333274, "Forest_Area": 92.028571},
+      {"Country": "Gabon", "CO2_Emissions": 0.323066, "Forest_Area": 91.320681},
+      {"Country": "Solomon Islands", "CO2_Emissions": 8.802582, "Forest_Area": 90.138264},
+      {"Country": "Palau", "CO2_Emissions": 2.725731, "Forest_Area": 90.021739},
+      {"Country": "Equatorial Guinea", "CO2_Emissions": 0, "Forest_Area": 87.287701},
+      {"Country": "American Samoa", "CO2_Emissions": 0.563252, "Forest_Area": 85.65},
+      {"Country": "Papua New Guinea", "CO2_Emissions": 0.231839, "Forest_Area": 79.176258},
+      {"Country": "Liberia", "CO2_Emissions": 6.570145, "Forest_Area": 79.084718}
+    ]
+  },
+  "selection": {
+    "metric_selection": {
+      "type": "multi",
+      "fields": ["Metric Label"],
+      "bind": "legend"
+    }
+  },
+  "transform": [
+    {
+      "fold": ["Forest_Area", "CO2_Emissions"],
+      "as": ["Metric", "Value"]
+    },
+    {
+      "calculate": "datum.Metric === 'Forest_Area' ? 'Forest Area (% of land area)' : 'CO2 Emissions (metric tons per capita)'",
+      "as": "Metric Label"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Country",
+      "type": "nominal",
+      "title": "Country",
+      "axis": {"labelAngle": -45}
+    },
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Value"
+    },
+    "color": {
+      "field": "Metric Label",
+      "type": "nominal",
+      "title": "Metric",
+      "scale": {"range": ["#8c564b", "#2ca02c"]}
+    },
+    "xOffset": {
+      "field": "Metric Label"
+    },
+    "tooltip": [
+      {"field": "Country", "type": "ordinal", "title": "Country"},
+      {"field": "Metric Label", "type": "nominal", "title": "Metric"},
+      {"field": "Value", "type": "quantitative", "title": "Value"}
+    ],
+    "opacity": {
+      "condition": {"selection": "metric_selection", "value": 1},
+      "value": 0.2
+    }
+  }
+}

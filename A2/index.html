@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import updated Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <script src="visualisations.js"></script>
+  <style>
+    /* Aligning visualizations centrally */
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Full viewport height */
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      background-color: black; /* Black background for main title */
+      color: white; /* White text color */
+      padding: 15px; /* Padding around the title */
+      border-radius: 5px; /* Rounded corners */
+      width: 100%; /* Full width */
+    }
+
+    h2 {
+      background-color: #d1ecf1; /* Light blue background for subheadings */
+      color: #333; /* Dark text color */
+      padding: 10px; /* Padding around the subheadings */
+      border-radius: 5px; /* Rounded corners */
+      margin-bottom: 10px; /* Space below subheadings */
+      width: 100%; /* Full width */
+      text-align: center; /* Center-align text */
+    }
+
+
+    #barchart-1, #barchart-2, #choropleth_map {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      padding-left: 150px;
+    }
+
+    #choropleth_map {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      padding-left: 30px;
+    }
+
+    #donut_chart {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      padding-left: 60px;
+    }
+
+    #scatter_plot{
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      padding-left: 60px;
+    }
+
+    body {
+      background-color: #f4f4f4; /* Light grey background */
+      font-family: 'Roboto', sans-serif; 
+  }
+
+    p {
+      font-size: 16px; 
+      color: #555; 
+      line-height: 1.6; 
+      max-width: 600px; 
+      text-align: justify; 
+      background-color: #ffffff; 
+      border: 1px solid #ddd;
+      border-radius: 5px; 
+      padding: 15px; 
+      margin: 15px 0; 
+      margin-left: -50px; 
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    }
+
+    
+  </style>
+  
+  <title>Homework Week 10</title>
+</head>
+<body>
+    <h1>World Environment Indicators (2020)</h1>
+    <br>
+    <br>
+    
+    <h2>Top 10 Countries for <b>CO2 Emissions</b> vs Forest Area</h2>
+    <div id="barchart-1"></div>
+    <p><b>Lower</b> forest area , <b>higher</b> CO2 Emissions</p>
+    <p><b>Brunei Darussalam</b> has high CO2 Emissions with high forest area is because
+        it is dominated by the <b>burning of fossil fuels</b> for energy production
+    </p>
+    <br>
+
+    <h2>Top 10 Countries for <b>Forest Area</b> vs CO2 Emissions</h2>
+    <div id="barchart-2"></div>
+    <p><b>Higher</b> Forest Area leads to <b>Lower</b> CO2 Emissions</p>
+
+    <br>
+    <h2 style="padding: 20px;">World Access to Electricity (2020)</h2>
+    <div id="choropleth_map"></div>
+    <p><b>Africa</b> is the only continent that majorly sufferes from electricity access</p>
+
+    <br>
+    <h2 style="padding: 20px;">Annual Freshwater Retrievals (% of internal resources) </h2>
+    <div id="donut_chart"></div>
+    <p><b>Asia and Africa</b> high percentages highlight the challenges of water scarcity and the need for sustainable water usage practices</p>
+
+    <br>
+    <h2 style="padding: 20px;">GDP per Capita vs Population </h2>
+    <div id="scatter_plot"></div>
+
+    <footer>
+      <p><b>© 2024 Lekxment a/l Sarawanan. FIT 3179 Assignment 2</b></p>
+      <p><b>Data Source (Environment Section): <a href="https://data.worldbank.org/region/world?view=chart" target="_blank" style="color: blue; text-decoration: underline;">World Bank</a></b></p>
+  </footer>  
+    
+</body>
+</html>

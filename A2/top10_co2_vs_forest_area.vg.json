@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 300,
+  "data": {
+    "values": [
+      {"Country Name": "Qatar", "Country Code": "QAT", "2020_CO2": 31.726842, "2020_ForestArea": 0},
+      {"Country Name": "Bahrain", "Country Code": "BHR", "2020_CO2": 21.976908, "2020_ForestArea": 0.89172},
+      {"Country Name": "Brunei Darussalam", "Country Code": "BRN", "2020_CO2": 21.705812, "2020_ForestArea": 72.106262},
+      {"Country Name": "Kuwait", "Country Code": "KWT", "2020_CO2": 21.16961, "2020_ForestArea": 0.35073},
+      {"Country Name": "U.A.E", "Country Code": "ARE", "2020_CO2": 20.252272, "2020_ForestArea": 4.467756},
+      {"Country Name": "Oman", "Country Code": "OMN", "2020_CO2": 15.636201, "2020_ForestArea": 0.008078},
+      {"Country Name": "Australia", "Country Code": "AUS", "2020_CO2": 14.776137, "2020_ForestArea": 17.421315},
+      {"Country Name": "Saudi Arabia", "Country Code": "SAU", "2020_CO2": 14.266585, "2020_ForestArea": 0.454484},
+      {"Country Name": "Canada", "Country Code": "CAN", "2020_CO2": 13.591696, "2020_ForestArea": 38.695513},
+      {"Country Name": "United States", "Country Code": "USA", "2020_CO2": 13.032222, "2020_ForestArea": 33.866926}
+    ]
+  },
+  "selection": {
+    "metric_selection": {
+      "type": "multi",
+      "fields": ["Metric Label"],
+      "bind": "legend"
+    }
+  },
+  "transform": [
+    {
+      "fold": ["2020_CO2", "2020_ForestArea"],
+      "as": ["Metric", "Value"]
+    },
+    {
+      "calculate": "datum.Metric === '2020_CO2' ? 'CO2 Emissions (metric tons per capita)' : 'Forest Area (% of land area)'",
+      "as": "Metric Label"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Country Name",
+      "type": "ordinal",
+      "title": "Country",
+      "axis": {"labelAngle": -45}
+    },
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Value"
+    },
+    "color": {
+      "field": "Metric Label",
+      "type": "nominal",
+      "title": "Metric",
+      "scale": {"range": ["#8c564b", "#2ca02c"]}
+    },
+    "xOffset": {
+      "field": "Metric Label"
+    },
+    "tooltip": [
+      {"field": "Country Name", "type": "ordinal", "title": "Country"},
+      {"field": "Metric Label", "type": "nominal", "title": "Metric"},
+      {"field": "Value", "type": "quantitative", "title": "Value"}
+    ],
+    "opacity": {
+      "condition": {"selection": "metric_selection", "value": 1},
+      "value": 0.2
+    }
+  }
+}
