@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
+  "width": 800,
   "height": 300,
   "data": {
     "values": [
@@ -50,7 +50,7 @@
       "field": "Metric Label",
       "type": "nominal",
       "title": "Metric",
-      "scale": {"range": ["#d62728", "#2ca02c"]}
+      "scale": {"range": ["#8c564b", "#2ca02c"]}
     },
     "xOffset": {
       "field": "Metric Label"
