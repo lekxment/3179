@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/lekxment/3179/refs/heads/main/a2/data/new_freshwater.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "2020",
+          "as": "Total_Freshwater_Retrieval"
+        }
+      ],
+      "groupby": ["Continent"]
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "Total_Freshwater_Retrieval",
+          "as": "Total_Global_Freshwater"
+        }
+      ],
+      "frame": [null, null]
+    },
+    {
+      "calculate": "datum.Total_Freshwater_Retrieval / datum.Total_Global_Freshwater * 100",
+      "as": "Percentage"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 110,
+        "outerRadius": 200,
+        "stroke": "#fff"
+      },
+      "encoding": {
+        "theta": {
+          "field": "Total_Freshwater_Retrieval",
+          "type": "quantitative",
+          "stack": true
+        },
+        "color": {
+          "field": "Continent",
+          "type": "nominal",
+          "legend": {
+            "title": "Continent",
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {"field": "Continent", "type": "nominal"},
+          {"field": "Total_Freshwater_Retrieval", "type": "quantitative", "format": ".2f"},
+          {"field": "Percentage", "type": "quantitative", "format": ".2f", "title": "Percentage (%)"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "radiusOffset": 25,
+        "fontSize": 13,
+        "font": "Georgia",
+        "align": "center",
+        "fill": "black"
+      },
+      "encoding": {
+        "text": {
+          "field": "Percentage",
+          "type": "quantitative",
+          "format": ".2f",
+          "condition": {
+            "test": "datum.Continent === 'North America' || datum.Continent === 'Europe' || datum.Continent === 'South America' || datum.Continent === 'Oceania'"
+          }
+        },
+        "theta": {"field": "Total_Freshwater_Retrieval", "type": "quantitative", "stack": true},
+        "radius": {
+          "field": "Total_Freshwater_Retrieval",
+          "scale": {"type": "sqrt", "zero": true, "rangeMin": 60}
+        },
+        "color": {"field": "Continent", "type": "nominal", "legend": null}
+      }
+    }
+  ],
+  "view": {
+    "stroke": null
+  },
+  "config": {
+    "legend": {
+      "orient": "bottom",
+      "align": "center"
+    },
+    "view": {
+      "width": 400,
+      "height": 400
+    }
+  }
+}
